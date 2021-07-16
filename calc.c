@@ -21,7 +21,7 @@ void	draw(t_info *info)
 
 void	calc(t_info *info)
 {
-	handle_texture(info);
+	set_back_colors(info);
 }
 
 int	main_loop(t_info *info)

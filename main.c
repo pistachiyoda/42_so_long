@@ -18,6 +18,39 @@
 // 	info->ceiling_color = -1;
 // 	info->initial_direction = '\0';
 // }
+#include <stdio.h>
+void	load_image(t_info *info, t_img *texture,char *path)
+{
+	texture->img = mlx_xpm_file_to_image(
+			info->mlx, path,
+			&texture->img_width,
+			&texture->img_height);
+	texture->data = (int *)mlx_get_data_addr(
+			texture->img,
+			&texture->bpp,
+			&texture->size_l,
+			&texture->endian);
+	if (texture->data == 0)
+		end_game(info, 1, "ERROR: load image failed\n");
+}
+
+void	load_images(t_info *info)
+{
+	t_img	img;
+
+	load_image(info, &info->background_tex, "./textures/siba.xpm");
+	load_image(info, &info->wall_tex, "./textures/hana.xpm");
+	// load_image(info, info->texture[1], "textures/redbrick.xpm", &img);
+	// load_image(info, info->texture[2], "textures/purplestone.xpm", &img);
+	// load_image(info, info->texture[3], "textures/greystone.xpm", &img);
+	// load_image(info, info->texture[4], "textures/bluestone.xpm", &img);
+	// load_image(info, info->texture[5], "textures/mossy.xpm", &img);
+	// load_image(info, info->texture[6], "textures/wood.xpm", &img);
+	// load_image(info, info->texture[7], "textures/colorstone.xpm", &img);
+	// load_image(info, info->texture[8], "textures/barrel.xpm", &img);
+	// load_image(info, info->texture[9], "textures/pillar.xpm", &img);
+	// load_image(info, info->texture[10], "textures/greenlight.xpm", &img);
+}
 
 void	init_info(t_info *info)
 {
@@ -51,7 +84,7 @@ int	main(int argc, char **argv)
 	info->img.data = (int *)mlx_get_data_addr(
 			info->img.img, &(info->img.bpp),
 			&(info->img.size_l), &(info->img.endian));
-	
+	load_images(info);
 	// read_config(info, argv[1]);
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	// mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
