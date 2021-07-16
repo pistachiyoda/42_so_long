@@ -1,0 +1,7 @@
+*.o
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+*.dylib
+*.a
+so_long
