@@ -19,3 +19,24 @@ void	set_back_colors(t_info *info)
 		y++;
 	}
 }
+
+void	set_wall_colors(t_info *info)
+{
+	int	x;
+	int	y;
+	int color;
+
+	y = 0;
+	while (y < SCREEN_HEIGHT)
+	{
+		x = 0;
+		while (x < SCREEN_WIDTH)
+		{
+			color = info->wall_tex.data[(y % 32) * info->wall_tex.size_l / 4 + ((x % 32) * (info->wall_tex.bpp / 8) / 4)];
+			if((color & 0x00FFFFFF) != 0)
+				info->buf[y][x] = color;
+			x++;
+		}
+		y++;
+	}
+}

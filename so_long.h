@@ -63,4 +63,5 @@ int		main_loop(t_info *info);
 void	end_game_without_info(int status, char *message);
 void	end_game(t_info *info, int status, char *message);
 void	set_back_colors(t_info *info);
+void	set_wall_colors(t_info *info);
 #endif

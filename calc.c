@@ -22,6 +22,7 @@ void	draw(t_info *info)
 void	calc(t_info *info)
 {
 	set_back_colors(info);
+	set_wall_colors(info);
 }
 
 int	main_loop(t_info *info)
