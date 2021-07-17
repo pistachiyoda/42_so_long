@@ -8,6 +8,7 @@
 # include	<stdlib.h>
 # include	<sys/types.h>
 # include	<sys/stat.h>
+#include <stdio.h>   ///後で消す!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # define	SCREEN_WIDTH			320
 # define	SCREEN_HEIGHT		320
 
@@ -56,6 +57,9 @@ typedef struct s_info
 	t_img		character_tex[4];
 	int			buf[SCREEN_HEIGHT][SCREEN_WIDTH];
 	double		zBuffer[SCREEN_WIDTH];
+	int			**worldMap;
+	int			map_height;
+	int			map_width;
 }				t_info;
 
 void	background(t_info *info);
@@ -64,4 +68,7 @@ void	end_game_without_info(int status, char *message);
 void	end_game(t_info *info, int status, char *message);
 void	set_back_colors(t_info *info);
 void	set_wall_colors(t_info *info);
+void	read_config(t_info *info, char *file_path);
+int		handle_map(t_info *info, char *line, int *y);
+void	check_map(t_info *info);
 #endif

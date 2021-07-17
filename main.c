@@ -1,24 +1,21 @@
 #include "so_long.h"
-
-// void	init_map_info(t_info *info)
-// {
-// 	int	i;
-
-// 	info->worldMap = NULL;
-// 	info->map_height = 0;
-// 	info->map_width = 0;
-// 	i = 0;
-// 	while (i < 4)
-// 	{
-// 		info->texture[i].img = NULL;
-// 		info->texture[i].data = NULL;
-// 		i++;
-// 	}
-// 	info->floor_color = -1;
-// 	info->ceiling_color = -1;
-// 	info->initial_direction = '\0';
-// }
 #include <stdio.h>
+void	init_map_info(t_info *info)
+{
+	int	i;
+
+	info->worldMap = NULL;
+	info->map_height = 0;
+	info->map_width = 0;
+	i = 0;
+	// while (i < 4)
+	// {
+	// 	info->texture[i].img = NULL;
+	// 	info->texture[i].data = NULL;
+	// 	i++;
+	// }
+}
+
 void	load_image(t_info *info, t_img *texture,char *path)
 {
 	texture->img = mlx_xpm_file_to_image(
@@ -57,6 +54,7 @@ void	init_info(t_info *info)
 	int	i;
 	int	j;
 
+	init_map_info(info);
 	info->mlx = mlx_init();
 	i = 0;
 	while (i < SCREEN_HEIGHT)
@@ -85,7 +83,7 @@ int	main(int argc, char **argv)
 			info->img.img, &(info->img.bpp),
 			&(info->img.size_l), &(info->img.endian));
 	load_images(info);
-	// read_config(info, argv[1]);
+	read_config(info, argv[1]);
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	// mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
 	// mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
