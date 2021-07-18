@@ -6,10 +6,10 @@ void	draw(t_info *info)
 	int	x;
 
 	y = 0;
-	while (y < SCREEN_HEIGHT)
+	while (y < info->screen_height)
 	{
 		x = 0;
-		while (x < SCREEN_WIDTH)
+		while (x < info->screen_width)
 		{
 			info->img.data[y * (info->img.size_l / 4) + x] = info->buf[y][x];
 			x++;

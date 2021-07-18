@@ -9,8 +9,8 @@
 # include	<sys/types.h>
 # include	<sys/stat.h>
 #include <stdio.h>   ///後で消す!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# define	SCREEN_WIDTH			320
-# define	SCREEN_HEIGHT		320
+// # define	info->screen_width			320
+// # define	info->screen_height		320
 
 # ifdef __linux__
 #  define	K_W		119
@@ -55,11 +55,13 @@ typedef struct s_info
 	t_img		tresure_tex;
 	t_img		goal_tex;
 	t_img		character_tex[4];
-	int			buf[SCREEN_HEIGHT][SCREEN_WIDTH];
-	double		zBuffer[SCREEN_WIDTH];
+	// int			buf[info->screen_height][info->screen_width];
+	int			**buf;
 	int			**worldMap;
 	int			map_height;
 	int			map_width;
+	int			screen_height;
+	int			screen_width;
 }				t_info;
 
 void	background(t_info *info);

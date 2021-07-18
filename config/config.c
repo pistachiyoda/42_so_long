@@ -43,5 +43,24 @@ void	read_config(t_info *info, char *file_path)
 		end_game(info, 1, "ERROR: Config file reading error.\n");
 	input_config(info, fd);
 	check_map(info);
+
+	info->screen_height = info->map_height * 32;
+	info->screen_width = info->map_width * 32;
+	int i;
+	int j;
+	info->buf = (int *)malloc((sizeof (int *)) * info->screen_height);
+	printf("h = %d\n", info->screen_height);
+	i = 0;
+	while (i < info->screen_height)
+	{
+		j = 0;
+		info->buf[i] = (int *)malloc((sizeof (int)) * info->screen_width);
+		while (j < info->screen_width)
+		{
+			info->buf[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
 	// init_position(info);
 }

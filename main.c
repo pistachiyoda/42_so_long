@@ -1,20 +1,5 @@
 #include "so_long.h"
 #include <stdio.h>
-void	init_map_info(t_info *info)
-{
-	int	i;
-
-	info->worldMap = NULL;
-	info->map_height = 0;
-	info->map_width = 0;
-	i = 0;
-	// while (i < 4)
-	// {
-	// 	info->texture[i].img = NULL;
-	// 	info->texture[i].data = NULL;
-	// 	i++;
-	// }
-}
 
 void	load_image(t_info *info, t_img *texture,char *path)
 {
@@ -54,19 +39,19 @@ void	init_info(t_info *info)
 	int	i;
 	int	j;
 
-	init_map_info(info);
 	info->mlx = mlx_init();
-	i = 0;
-	while (i < SCREEN_HEIGHT)
-	{
-		j = 0;
-		while (j < SCREEN_WIDTH)
-		{
-			info->buf[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
+	// i = 0;
+	// while (i < info->screen_height)
+	// {
+	// 	j = 0;
+	// 	info->buf[i] = (int *)malloc((sizeof (int)) * info->screen_width);
+	// 	while (j < info->screen_width)
+	// 	{
+	// 		info->buf[i][j] = 0;
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 }
 
 int	main(int argc, char **argv)
@@ -77,13 +62,16 @@ int	main(int argc, char **argv)
 		end_game_without_info(1, "ERROR: Invalid argument.");
 	info = (t_info *)malloc(sizeof(t_info));
 	init_info(info);
-	info->win = mlx_new_window(info->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "so_long");
-	info->img.img = mlx_new_image(info->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	read_config(info, argv[1]);
+
+	info->win = mlx_new_window(info->mlx, info->screen_width, info->screen_height, "so_long");
+	info->img.img = mlx_new_image(info->mlx, info->screen_width, info->screen_height);
 	info->img.data = (int *)mlx_get_data_addr(
 			info->img.img, &(info->img.bpp),
 			&(info->img.size_l), &(info->img.endian));
 	load_images(info);
-	read_config(info, argv[1]);
+	printf("info->screen_height = %d\n", info->screen_height);
+	printf("info->screen_width = %d\n", info->screen_width);
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	// mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
 	// mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
