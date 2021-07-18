@@ -5,8 +5,12 @@ int	proc_map_element(char c)
 		return (0);
 	if (c == '1')
 		return (1);
-	if (c == 'C' || c == 'E' || c == 'P')
-		return (0);
+	if (c == 'C')
+		return (2);
+	if (c == 'E')
+		return (3);
+	if (c == 'P')
+		return (4);
 	return (-1);
 }
 
@@ -73,4 +77,4 @@ int	handle_map(t_info *info, char *line, int *y)
 	(info->map_height)++;
 	(*y)++;
 	return (1);
-}
+}  

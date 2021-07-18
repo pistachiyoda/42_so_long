@@ -54,7 +54,7 @@ typedef struct s_info
 	t_img		wall_tex;
 	t_img		tresure_tex;
 	t_img		goal_tex;
-	t_img		character_tex[4];
+	t_img		player_tex;
 	// int			buf[info->screen_height][info->screen_width];
 	int			**buf;
 	int			**worldMap;
@@ -70,6 +70,9 @@ void	end_game_without_info(int status, char *message);
 void	end_game(t_info *info, int status, char *message);
 void	set_back_colors(t_info *info);
 void	set_wall_colors(t_info *info);
+void	set_treasure_colors(t_info *info);
+void	set_goal_colors(t_info *info);
+void	set_player_colors(t_info *info);
 void	read_config(t_info *info, char *file_path);
 int		handle_map(t_info *info, char *line, int *y);
 void	check_map(t_info *info);

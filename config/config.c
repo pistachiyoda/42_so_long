@@ -49,7 +49,6 @@ void	read_config(t_info *info, char *file_path)
 	int i;
 	int j;
 	info->buf = (int *)malloc((sizeof (int *)) * info->screen_height);
-	printf("h = %d\n", info->screen_height);
 	i = 0;
 	while (i < info->screen_height)
 	{

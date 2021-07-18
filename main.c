@@ -22,16 +22,9 @@ void	load_images(t_info *info)
 
 	load_image(info, &info->background_tex, "./textures/siba.xpm");
 	load_image(info, &info->wall_tex, "./textures/hana.xpm");
-	// load_image(info, info->texture[1], "textures/redbrick.xpm", &img);
-	// load_image(info, info->texture[2], "textures/purplestone.xpm", &img);
-	// load_image(info, info->texture[3], "textures/greystone.xpm", &img);
-	// load_image(info, info->texture[4], "textures/bluestone.xpm", &img);
-	// load_image(info, info->texture[5], "textures/mossy.xpm", &img);
-	// load_image(info, info->texture[6], "textures/wood.xpm", &img);
-	// load_image(info, info->texture[7], "textures/colorstone.xpm", &img);
-	// load_image(info, info->texture[8], "textures/barrel.xpm", &img);
-	// load_image(info, info->texture[9], "textures/pillar.xpm", &img);
-	// load_image(info, info->texture[10], "textures/greenlight.xpm", &img);
+	load_image(info, &info->tresure_tex, "./textures/takara.xpm");
+	load_image(info, &info->goal_tex, "./textures/goal.xpm");
+	load_image(info, &info->player_tex, "./textures/mae.xpm");
 }
 
 void	init_info(t_info *info)
@@ -63,7 +56,6 @@ int	main(int argc, char **argv)
 	info = (t_info *)malloc(sizeof(t_info));
 	init_info(info);
 	read_config(info, argv[1]);
-
 	info->win = mlx_new_window(info->mlx, info->screen_width, info->screen_height, "so_long");
 	info->img.img = mlx_new_image(info->mlx, info->screen_width, info->screen_height);
 	info->img.data = (int *)mlx_get_data_addr(
