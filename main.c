@@ -73,6 +73,6 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
 	mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
-	// mlx_hook(info->win, X_EVENT_KEY_EXIT, 1L << 17, close_window, info);
+	mlx_hook(info->win, X_EVENT_KEY_EXIT, 1L << 17, close_window, info);
 	mlx_loop(info->mlx);
 }

@@ -84,4 +84,5 @@ void	check_map(t_info *info);
 void	key_move(t_info *info);
 int		key_press(int key, t_info *info);
 int		key_release(int key, t_info *info);
+int		close_window(t_info *info);
 #endif

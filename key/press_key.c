@@ -2,8 +2,8 @@
 
 int	key_press(int key, t_info *info)
 {
-	// if (key == K_ESC)
-	// 	close_window(info);
+	if (key == K_ESC)
+		close_window(info);
 	if (key == K_W)
 		info->key_w = 1;
 	else if (key == K_A)

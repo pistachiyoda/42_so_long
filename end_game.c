@@ -34,12 +34,12 @@ void	free_info(t_info *info)
 	free(info);
 }
 
-// int	close_window(t_info *info)
-// {
-// 	free_info(info);
-// 	ft_putstr_fd("End game.\n", 1);
-// 	exit(0);
-// }
+int	close_window(t_info *info)
+{
+	free_info(info);
+	ft_putstr_fd("End game.\n", 1);
+	exit(0);
+}
 
 void	end_game_without_info(int status, char *message)
 {
