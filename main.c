@@ -40,6 +40,9 @@ void	init_info(t_info *info)
 	info->key_d = 0;
 	info->key_esc = 0;
 	info->moveSpeed = 0.1;
+	info->prev_posX = 0;
+	info->prev_posY = 0;
+	info->move_cnt = 0;
 	info->collect_cnt = 0;
 	// i = 0;
 	// while (i < info->screen_height)

@@ -68,6 +68,9 @@ typedef struct s_info
 	int			key_s;
 	int			key_d;
 	int			key_esc;
+	int			prev_posX;
+	int			prev_posY;
+	int			move_cnt;
 	int			collect_cnt;
 }				t_info;
 
@@ -90,4 +93,5 @@ int		key_press(int key, t_info *info);
 int		key_release(int key, t_info *info);
 void	get_tresure(t_info *info);
 int		close_window(t_info *info);
+void	move_cnt(t_info *info);
 #endif
