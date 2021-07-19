@@ -4,10 +4,11 @@ void	handle_key_w(t_info *info)
 {
 	if (info->worldMap[(int)(info->posY - info->moveSpeed)][(int)(info->posX)] != 1)
 	{
-		if (floor(info->posY) != floor(info->posY - info->moveSpeed))
+		if ((int)(info->posY) != (int)(info->posY - info->moveSpeed))
 			move_cnt(info);
 		info->prev_posY = info->posY;
 		info->posY -= info->moveSpeed;
+		// if (info->worldMap[])
 	}
 }
 
@@ -15,7 +16,7 @@ void	handle_key_s(t_info *info)
 {
 	if (info->worldMap[(int)(info->posY + info->moveSpeed)][(int)(info->posX)] != 1)
 	{
-		if (floor(info->posY) != floor(info->posY + info->moveSpeed))
+		if ((int)(info->posY) != (int)(info->posY + info->moveSpeed))
 			move_cnt(info);
 		info->prev_posY = info->posY;
 		info->posY += info->moveSpeed;
@@ -26,7 +27,7 @@ void	handle_key_d(t_info *info)
 {
 	if (info->worldMap[(int)(info->posY)][(int)(info->posX + info->moveSpeed)] != 1)
 	{
-		if (floor(info->posX) != floor(info->posX + info->moveSpeed))
+		if ((int)(info->posX) != (int)(info->posX + info->moveSpeed))
 			move_cnt(info);
 		info->prev_posX = info->posX;
 		info->posX += info->moveSpeed;
@@ -37,7 +38,7 @@ void	handle_key_a(t_info *info)
 {
 	if (info->worldMap[(int)(info->posY)][(int)(info->posX - info->moveSpeed)] != 1)
 	{
-		if (floor(info->posX) != floor(info->posX - info->moveSpeed))
+		if ((int)(info->posX) != (int)(info->posX - info->moveSpeed))
 			move_cnt(info);
 		info->prev_posX = info->posX;
 		info->posX -= info->moveSpeed;
@@ -50,6 +51,11 @@ void	move_cnt(t_info *info)
 	ft_putstr_fd("Number of Movement :", 1);
 	ft_putnbr_fd(info->move_cnt, 1);
 	ft_putstr_fd("\n", 1);
+}
+
+void	collect_cnt(t_info *info)
+{
+	info->collect_cnt += 1;
 }
 
 void	key_move(t_info *info)
