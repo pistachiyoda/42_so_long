@@ -27,14 +27,11 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 		if (!ft_strrchr("01CEP", line[i]))
 			end_game(info, 1, "ERROR: Invalid map.\n");
 		info->worldMap[y][i] = proc_map_element(line[i]);
-		// if (ft_strrchr("NWES", line[i]))
-		// {
-		// 	if (info->initial_direction != '\0')
-		// 		end_game(info, 1, "ERROR: Invalid map.\n");
-		// 	info->posX = y;
-		// 	info->posY = i;
-		// 	info->initial_direction = line[i];
-		// }
+		if (ft_strrchr("P", line[i]))
+		{
+			info->posX = y;
+			info->posY = i;
+		}
 		i++;
 	}
 	info->worldMap[y][i] = -2;

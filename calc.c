@@ -32,6 +32,6 @@ int	main_loop(t_info *info)
 {
 	calc(info);
 	draw(info);
-	// key_update(info);
+	key_move(info);
 	return (0);
 }

@@ -33,6 +33,12 @@ void	init_info(t_info *info)
 	int	j;
 
 	info->mlx = mlx_init();
+	info->key_a = 0;
+	info->key_w = 0;
+	info->key_s = 0;
+	info->key_d = 0;
+	info->key_esc = 0;
+	info->moveSpeed = 0.1;
 	// i = 0;
 	// while (i < info->screen_height)
 	// {
@@ -65,8 +71,8 @@ int	main(int argc, char **argv)
 	printf("info->screen_height = %d\n", info->screen_height);
 	printf("info->screen_width = %d\n", info->screen_width);
 	mlx_loop_hook(info->mlx, &main_loop, info);
-	// mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
-	// mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
+	mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
+	mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
 	// mlx_hook(info->win, X_EVENT_KEY_EXIT, 1L << 17, close_window, info);
 	mlx_loop(info->mlx);
 }

@@ -9,16 +9,15 @@
 # include	<sys/types.h>
 # include	<sys/stat.h>
 #include <stdio.h>   ///後で消す!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// # define	info->screen_width			320
-// # define	info->screen_height		320
+# define	X_EVENT_KEY_PRESS	2
+# define	X_EVENT_KEY_RELEASE	3
+# define	X_EVENT_KEY_EXIT	17
 
 # ifdef __linux__
 #  define	K_W		119
 #  define	K_A		97
 #  define	K_S		115
 #  define	K_D		100
-#  define 	K_AR_L	65361
-#  define	K_AR_R	65363
 #  define 	K_ESC	65307
 #  define	IS_LINUX 1
 # else
@@ -26,8 +25,6 @@
 #  define	K_A		0
 #  define	K_S		1
 #  define	K_D		2
-#  define	K_AR_L	123
-#  define	K_AR_R	124
 #  define	K_ESC	53
 #  define	IS_LINUX 0
 void	mlx_destroy_display(void *ptr);
@@ -62,6 +59,14 @@ typedef struct s_info
 	int			map_width;
 	int			screen_height;
 	int			screen_width;
+	double		posX;
+	double		posY;
+	double		moveSpeed;
+	int			key_a;
+	int			key_w;
+	int			key_s;
+	int			key_d;
+	int			key_esc;
 }				t_info;
 
 void	background(t_info *info);
@@ -76,4 +81,7 @@ void	set_player_colors(t_info *info);
 void	read_config(t_info *info, char *file_path);
 int		handle_map(t_info *info, char *line, int *y);
 void	check_map(t_info *info);
+void	key_move(t_info *info);
+int		key_press(int key, t_info *info);
+int		key_release(int key, t_info *info);
 #endif
