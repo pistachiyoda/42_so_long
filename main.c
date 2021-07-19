@@ -25,6 +25,7 @@ void	load_images(t_info *info)
 	load_image(info, &info->tresure_tex, "./textures/takara.xpm");
 	load_image(info, &info->goal_tex, "./textures/goal.xpm");
 	load_image(info, &info->player_tex, "./textures/mae.xpm");
+	load_image(info, &info->opened_tresure_tex, "./textures/kara_takara.xpm");
 }
 
 void	init_info(t_info *info)
@@ -39,6 +40,7 @@ void	init_info(t_info *info)
 	info->key_d = 0;
 	info->key_esc = 0;
 	info->moveSpeed = 0.1;
+	info->collect_cnt = 0;
 	// i = 0;
 	// while (i < info->screen_height)
 	// {

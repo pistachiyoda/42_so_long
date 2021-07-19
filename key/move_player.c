@@ -35,3 +35,18 @@ void	key_move(t_info *info)
 	if (info->key_a)
 		handle_key_a(info);
 }
+
+void	get_tresure(t_info *info)
+{
+	if (info->worldMap[(int)(info->posY)][(int)(info->posX)] == 2)
+	{
+		info->worldMap[(int)(info->posY)][(int)(info->posX)] = 4;
+		info->collect_cnt += 1;
+	}
+}
+
+void	key_update(t_info *info)
+{
+	key_move(info);
+	get_tresure(info);
+}

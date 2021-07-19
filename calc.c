@@ -24,6 +24,7 @@ void	calc(t_info *info)
 	set_back_colors(info);
 	set_wall_colors(info);
 	set_treasure_colors(info);
+	set_opened_treasure_colors(info);
 	set_goal_colors(info);
 	set_player_colors(info);
 }
@@ -32,6 +33,6 @@ int	main_loop(t_info *info)
 {
 	calc(info);
 	draw(info);
-	key_move(info);
+	key_update(info);
 	return (0);
 }

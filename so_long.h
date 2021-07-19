@@ -49,6 +49,7 @@ typedef struct s_info
 	t_img		img;
 	t_img		background_tex;
 	t_img		wall_tex;
+	t_img		opened_tresure_tex;
 	t_img		tresure_tex;
 	t_img		goal_tex;
 	t_img		player_tex;
@@ -67,6 +68,7 @@ typedef struct s_info
 	int			key_s;
 	int			key_d;
 	int			key_esc;
+	int			collect_cnt;
 }				t_info;
 
 void	background(t_info *info);
@@ -76,13 +78,16 @@ void	end_game(t_info *info, int status, char *message);
 void	set_back_colors(t_info *info);
 void	set_wall_colors(t_info *info);
 void	set_treasure_colors(t_info *info);
+void	set_opened_treasure_colors(t_info *info);
 void	set_goal_colors(t_info *info);
 void	set_player_colors(t_info *info);
 void	read_config(t_info *info, char *file_path);
 int		handle_map(t_info *info, char *line, int *y);
 void	check_map(t_info *info);
 void	key_move(t_info *info);
+void	key_update(t_info *info);
 int		key_press(int key, t_info *info);
 int		key_release(int key, t_info *info);
+void	get_tresure(t_info *info);
 int		close_window(t_info *info);
 #endif

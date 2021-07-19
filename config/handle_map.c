@@ -10,7 +10,7 @@ int	proc_map_element(char c)
 	if (c == 'E')
 		return (3);
 	if (c == 'P')
-		return (4);
+		return (0);
 	return (-1);
 }
 
