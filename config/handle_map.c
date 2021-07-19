@@ -29,8 +29,8 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 		info->worldMap[y][i] = proc_map_element(line[i]);
 		if (ft_strrchr("P", line[i]))
 		{
-			info->posX = y;
-			info->posY = i;
+			info->posX = i;
+			info->posY = y;
 		}
 		i++;
 	}
