@@ -100,4 +100,5 @@ int		close_window(t_info *info);
 void	move_cnt(t_info *info);
 void	get_treasure(t_info *info);
 void	check_goal_condition(t_info *info, int posX, int posY);
+void	free_map(t_info *info);
 #endif

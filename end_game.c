@@ -1,20 +1,20 @@
 #include "so_long.h"
 
-// void	free_map(t_info *info)
-// {
-// 	int	i;
+void	free_map(t_info *info)
+{
+	int	i;
 
-// 	if (info->worldMap)
-// 	{
-// 		i = 0;
-// 		while (i < info->map_height)
-// 		{
-// 			free(info->worldMap[i]);
-// 			i++;
-// 		}
-// 		free(info->worldMap);
-// 	}
-// }
+	if (info->worldMap)
+	{
+		i = 0;
+		while (i < info->map_height)
+		{
+			free(info->worldMap[i]);
+			i++;
+		}
+		free(info->worldMap);
+	}
+}
 
 void	free_info(t_info *info)
 {
@@ -30,7 +30,7 @@ void	free_info(t_info *info)
 			mlx_destroy_display(info->mlx);
 		free(info->mlx);
 	}
-	// free_map(info);
+	free_map(info);
 	free(info);
 }
 
