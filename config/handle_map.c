@@ -26,6 +26,8 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 	{
 		if (!ft_strrchr("01CEP", line[i]))
 			end_game(info, 1, "ERROR: Invalid map.\n");
+		if (line[i] == 'C')
+			info->num_of_treasure += 1;
 		info->worldMap[y][i] = proc_map_element(line[i]);
 		if (ft_strrchr("P", line[i]))
 		{

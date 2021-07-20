@@ -12,7 +12,10 @@
 # define	X_EVENT_KEY_PRESS	2
 # define	X_EVENT_KEY_RELEASE	3
 # define	X_EVENT_KEY_EXIT	17
-
+# define	WALL 1
+# define	TREASURE 2
+# define	GOAL 3
+# define	OPENED_TREASURE 4
 # ifdef __linux__
 #  define	K_W		119
 #  define	K_A		97
@@ -71,6 +74,7 @@ typedef struct s_info
 	int			prev_posX;
 	int			prev_posY;
 	int			move_cnt;
+	int			num_of_treasure;
 	int			collect_cnt;
 }				t_info;
 
@@ -94,4 +98,6 @@ int		key_release(int key, t_info *info);
 void	get_tresure(t_info *info);
 int		close_window(t_info *info);
 void	move_cnt(t_info *info);
+void	get_treasure(t_info *info);
+void	check_goal_condition(t_info *info, int posX, int posY);
 #endif
