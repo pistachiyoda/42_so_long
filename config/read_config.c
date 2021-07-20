@@ -66,5 +66,4 @@ void	read_config(t_info *info, char *file_path)
 		}
 		i++;
 	}
-	// init_position(info);
 }

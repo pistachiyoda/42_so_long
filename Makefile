@@ -16,9 +16,9 @@ else
 endif
 CFLAGS = $(INCS)
 CFILES = main.c end_game.c calc.c\
-		handle_texture.c\
-		./config/config.c ./config/handle_map.c ./config/check_map.c\
-		./key/press_key.c ./key/move_player.c
+		./texture/map.c ./texture/player.c ./texture/treasure.c\
+		./config/read_config.c ./config/process_map.c ./config/check_map.c\
+		./key/press_key.c ./key/move_player.c ./key/action.c ./key/key_update.c
 OBJ = $(CFILES:.c=.o)
 GNL = ./gnl/libgnl.a
 LIBFT = ./libft/libft.a

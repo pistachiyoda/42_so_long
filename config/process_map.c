@@ -49,17 +49,6 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 	info->worldMap[y][i] = -2;
 }
 
-/**
- * worldMap仕様
- * 
- * 0 床
- * 1 壁
- * C 収集物
- * E ゴール
- * P プレイヤー初期位置
- * -1 左側パディング
- * -2 行の右端
- */
 int	handle_map(t_info *info, char *line, int *y)
 {
 	int	**new_map_array;
