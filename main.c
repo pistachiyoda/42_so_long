@@ -73,9 +73,7 @@ int	main(int argc, char **argv)
 	info->img.data = (int *)mlx_get_data_addr(
 			info->img.img, &(info->img.bpp),
 			&(info->img.size_l), &(info->img.endian));
-	load_images(info);
-	printf("info->screen_height = %d\n", info->screen_height);
-	printf("info->screen_width = %d\n", info->screen_width);
+	load_images(info);\
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
 	mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);

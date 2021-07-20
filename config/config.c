@@ -37,13 +37,18 @@ void	input_config(t_info *info, int fd)
 void	read_config(t_info *info, char *file_path)
 {
 	int		fd;
+	int		sizex;
+	int		sizey;
+	int		calced_width;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		end_game(info, 1, "ERROR: Config file reading error.\n");
 	input_config(info, fd);
 	check_map(info);
-
+	mlx_get_screen_size(info->mlx, &sizex, &sizey);
+	if (info->map_width * 32 > sizex || info->map_height * 32 > sizey)
+		end_game_without_info(1, "ERROR: Input map is bigger than window size.\n");
 	info->screen_height = info->map_height * 32;
 	info->screen_width = info->map_width * 32;
 	int i;
