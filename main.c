@@ -45,6 +45,9 @@ void	init_info(t_info *info)
 	info->move_cnt = 0;
 	info->num_of_treasure = 0;
 	info->collect_cnt = 0;
+	info->E_cnt=0;
+	info->P_cnt=0;
+	info->C_cnt=0;
 	// i = 0;
 	// while (i < info->screen_height)
 	// {

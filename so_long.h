@@ -76,6 +76,9 @@ typedef struct s_info
 	int			move_cnt;
 	int			num_of_treasure;
 	int			collect_cnt;
+	int			E_cnt;
+	int			P_cnt;
+	int			C_cnt;
 }				t_info;
 
 void	background(t_info *info);

@@ -1,16 +1,26 @@
 #include "so_long.h"
-int	proc_map_element(char c)
+
+int	proc_map_element(char c, t_info *info)
 {
 	if (c == '0')
 		return (0);
 	if (c == '1')
 		return (WALL);
 	if (c == 'C')
+	{
+		info->C_cnt += 1;
 		return (TREASURE);
+	}
 	if (c == 'E')
+	{
+		info->E_cnt += 1;
 		return (GOAL);
+	}
 	if (c == 'P')
+	{
+		info->P_cnt += 1;
 		return (0);
+	}
 	return (-1);
 }
 
@@ -28,7 +38,7 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 			end_game(info, 1, "ERROR: Invalid map.\n");
 		if (line[i] == 'C')
 			info->num_of_treasure += 1;
-		info->worldMap[y][i] = proc_map_element(line[i]);
+		info->worldMap[y][i] = proc_map_element(line[i], info);
 		if (ft_strrchr("P", line[i]))
 		{
 			info->posX = i;
