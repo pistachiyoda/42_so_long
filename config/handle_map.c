@@ -4,11 +4,11 @@ int	proc_map_element(char c)
 	if (c == '0')
 		return (0);
 	if (c == '1')
-		return (1);
+		return (WALL);
 	if (c == 'C')
-		return (2);
+		return (TREASURE);
 	if (c == 'E')
-		return (3);
+		return (GOAL);
 	if (c == 'P')
 		return (0);
 	return (-1);
