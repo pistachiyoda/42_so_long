@@ -33,12 +33,12 @@ void	init_info(t_info *info)
 	int	j;
 
 	info->mlx = mlx_init();
+	info->moveSpeed = 0.02;
 	info->key_a = 0;
 	info->key_w = 0;
 	info->key_s = 0;
 	info->key_d = 0;
 	info->key_esc = 0;
-	info->moveSpeed = 0.1;
 	info->prev_posX = 0;
 	info->prev_posY = 0;
 	info->move_cnt = 0;

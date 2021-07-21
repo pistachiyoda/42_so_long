@@ -35,6 +35,16 @@ void	free_info(t_info *info)
 		mlx_destroy_window(info->mlx, info->win);
 	if (info->background_tex.img)
 		mlx_destroy_image(info->mlx, info->background_tex.img);
+	if (info->wall_tex.img)
+		mlx_destroy_image(info->mlx, info->wall_tex.img);
+	if (info->opened_tresure_tex.img)
+		mlx_destroy_image(info->mlx, info->opened_tresure_tex.img);
+	if (info->tresure_tex.img)
+		mlx_destroy_image(info->mlx, info->tresure_tex.img);
+	if (info->goal_tex.img)
+		mlx_destroy_image(info->mlx, info->goal_tex.img);
+	if (info->player_tex.img)
+		mlx_destroy_image(info->mlx, info->player_tex.img);
 	if (info->img.img)
 		mlx_destroy_image(info->mlx, info->img.img);
 	if (info->mlx)
@@ -44,5 +54,6 @@ void	free_info(t_info *info)
 		free(info->mlx);
 	}
 	free_map(info);
+	free_parts(info->buf);
 	free(info);
 }
