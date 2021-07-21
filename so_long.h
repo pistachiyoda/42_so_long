@@ -8,7 +8,6 @@
 # include	<stdlib.h>
 # include	<sys/types.h>
 # include	<sys/stat.h>
-#include <stdio.h>   ///後で消す!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # define	X_EVENT_KEY_PRESS	2
 # define	X_EVENT_KEY_RELEASE	3
 # define	X_EVENT_KEY_EXIT	17
@@ -56,7 +55,6 @@ typedef struct s_info
 	t_img		tresure_tex;
 	t_img		goal_tex;
 	t_img		player_tex;
-	// int			buf[info->screen_height][info->screen_width];
 	int			**buf;
 	int			**worldMap;
 	int			map_height;
