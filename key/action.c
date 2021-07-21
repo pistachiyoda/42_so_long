@@ -13,7 +13,6 @@ void	get_treasure(t_info *info)
 	}
 }
 
-
 void	check_goal_condition(t_info *info, int posX, int posY)
 {
 	if (info->worldMap[posY][posX] == GOAL)
@@ -25,9 +24,8 @@ void	check_goal_condition(t_info *info, int posX, int posY)
 			ft_putstr_fd("Please press ESC to end game!!\n", 1);
 		}
 		else
-		{
-			ft_putstr_fd("There are still treasures left you haven't collected yet.\n", 1);
-		}
+			ft_putstr_fd(
+				"There are still treasures left you haven't collected yet.\n", 1);
 	}
 }
 
