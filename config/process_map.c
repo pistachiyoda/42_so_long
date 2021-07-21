@@ -35,7 +35,11 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 	while (i < line_len)
 	{
 		if (!ft_strrchr("01CEP", line[i]))
+		{
+			free(line);
+			free(info->worldMap[y]);
 			end_game(info, 1, "ERROR: Invalid map.\n");
+		}
 		if (line[i] == 'C')
 			info->num_of_treasure += 1;
 		info->worldMap[y][i] = proc_map_element(line[i], info);
@@ -70,7 +74,11 @@ int	handle_map(t_info *info, char *line, int *y)
 	line_len = ft_strlen(line);
 	handle_line(info, *y, line, line_len);
 	if (info->map_width != 0 && info->map_width != line_len)
+	{
+		free(line);
+		free(info->worldMap[*y]);
 		end_game(info, 1, "ERROR: Invalid map.\n");
+	}
 	info->map_width = line_len;
 	(info->map_height)++;
 	(*y)++;
