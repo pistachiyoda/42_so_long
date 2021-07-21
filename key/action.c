@@ -25,7 +25,7 @@ void	check_goal_condition(t_info *info, int posX, int posY)
 		}
 		else
 			ft_putstr_fd(
-				"There are still treasures left you haven't collected yet.\n", 1);
+				"There are still treasures left.\n", 1);
 	}
 }
 
