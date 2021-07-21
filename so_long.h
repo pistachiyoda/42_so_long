@@ -1,5 +1,6 @@
 #ifndef SO_LONG_H
 # define	SO_LONG_H
+#include <stdio.h>
 # include	"mlx.h"
 # include	"libft.h"
 # include	"get_next_line.h"
@@ -81,6 +82,7 @@ typedef struct s_info
 void	background(t_info *info);
 int		main_loop(t_info *info);
 void	end_game_without_info(int status, char *message);
+void	end_game_without_map(t_info *info, char *message);
 void	end_game(t_info *info, int status, char *message);
 void	set_back_colors(t_info *info);
 void	set_wall_colors(t_info *info);

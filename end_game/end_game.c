@@ -13,6 +13,16 @@ void	end_game_without_info(int status, char *message)
 	exit(status);
 }
 
+void	end_game_without_map(t_info *info, char *message)
+{
+	if (IS_LINUX)
+		mlx_destroy_display(info->mlx);
+	free(info->mlx);
+	free(info);
+	ft_putstr_fd(message, 1);
+	exit(1);
+}
+
 void	end_game(t_info *info, int status, char *message)
 {
 	free_info(info);

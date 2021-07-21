@@ -1,16 +1,15 @@
 #include "so_long.h"
 
-void	free_parts(char **parts)
+void	free_buf(int **buf)
 {
 	int	i;
-
 	i = 0;
-	while (parts[i] != NULL)
+	while (buf[i] != NULL)
 	{
-		free(parts[i]);
+		free(buf[i]);
 		i++;
 	}
-	free(parts);
+	free(buf);
 }
 
 void	free_map(t_info *info)
@@ -54,6 +53,6 @@ void	free_info(t_info *info)
 		free(info->mlx);
 	}
 	free_map(info);
-	free_parts(info->buf);
+	free_buf(info->buf);
 	free(info);
 }
