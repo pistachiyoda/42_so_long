@@ -3,7 +3,6 @@
 # include	"mlx.h"
 # include	"libft.h"
 # include	"get_next_line.h"
-# include	<math.h>
 # include	<fcntl.h>
 # include	<stdlib.h>
 # include	<sys/types.h>
