@@ -1,7 +1,6 @@
 #include "so_long.h"
-#include <stdio.h>
 
-void	load_image(t_info *info, t_img *texture,char *path)
+void	load_image(t_info *info, t_img *texture, char *path)
 {
 	texture->img = mlx_xpm_file_to_image(
 			info->mlx, path,
@@ -45,21 +44,9 @@ void	init_info(t_info *info)
 	info->move_cnt = 0;
 	info->num_of_treasure = 0;
 	info->collect_cnt = 0;
-	info->E_cnt=0;
-	info->P_cnt=0;
-	info->C_cnt=0;
-	// i = 0;
-	// while (i < info->screen_height)
-	// {
-	// 	j = 0;
-	// 	info->buf[i] = (int *)malloc((sizeof (int)) * info->screen_width);
-	// 	while (j < info->screen_width)
-	// 	{
-	// 		info->buf[i][j] = 0;
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
+	info->E_cnt = 0;
+	info->P_cnt = 0;
+	info->C_cnt = 0;
 }
 
 int	main(int argc, char **argv)
@@ -71,12 +58,14 @@ int	main(int argc, char **argv)
 	info = (t_info *)malloc(sizeof(t_info));
 	init_info(info);
 	read_config(info, argv[1]);
-	info->win = mlx_new_window(info->mlx, info->screen_width, info->screen_height, "so_long");
-	info->img.img = mlx_new_image(info->mlx, info->screen_width, info->screen_height);
+	info->win = mlx_new_window(
+			info->mlx, info->screen_width, info->screen_height, "so_long");
+	info->img.img = mlx_new_image(
+			info->mlx, info->screen_width, info->screen_height);
 	info->img.data = (int *)mlx_get_data_addr(
 			info->img.img, &(info->img.bpp),
 			&(info->img.size_l), &(info->img.endian));
-	load_images(info);\
+	load_images(info);
 	mlx_loop_hook(info->mlx, &main_loop, info);
 	mlx_hook(info->win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, info);
 	mlx_hook(info->win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, info);
