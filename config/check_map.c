@@ -13,7 +13,8 @@ void	check_element(t_info *info)
 void	check_cell(t_info *info, int x, int y)
 {
 	if (
-		(y == 0 || y == (info->map_height - 1) || x == 0 || x == (info->map_width - 1))
+		(y == 0 || y == (info->map_height - 1)
+			|| x == 0 || x == (info->map_width - 1))
 		&& info->worldMap[y][x] != 1
 	)
 		end_game(info, 1, "ERROR: Invalid map.\n");

@@ -75,4 +75,4 @@ int	handle_map(t_info *info, char *line, int *y)
 	(info->map_height)++;
 	(*y)++;
 	return (1);
-}  
+}
