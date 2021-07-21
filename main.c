@@ -33,6 +33,7 @@ void	init_info(t_info *info)
 	int	j;
 
 	info->mlx = mlx_init();
+	info->buf = NULL;
 	info->moveSpeed = 0.02;
 	info->key_a = 0;
 	info->key_w = 0;

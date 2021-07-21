@@ -53,6 +53,7 @@ void	free_info(t_info *info)
 		free(info->mlx);
 	}
 	free_map(info);
-	free_buf(info->buf);
+	if (info->buf)
+		free_buf(info->buf);
 	free(info);
 }

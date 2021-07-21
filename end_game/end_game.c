@@ -25,7 +25,7 @@ void	end_game_without_map(t_info *info, char *message)
 
 void	end_game(t_info *info, int status, char *message)
 {
-	free_info(info);
 	ft_putstr_fd(message, 1);
+	free_info(info);
 	exit(status);
 }
