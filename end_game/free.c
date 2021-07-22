@@ -3,6 +3,7 @@
 void	free_buf(int **buf)
 {
 	int	i;
+
 	i = 0;
 	while (buf[i] != NULL)
 	{
@@ -28,10 +29,8 @@ void	free_map(t_info *info)
 	}
 }
 
-void	free_info(t_info *info)
+void	free_images(t_info *info)
 {
-	if (info->win)
-		mlx_destroy_window(info->mlx, info->win);
 	if (info->background_tex.img)
 		mlx_destroy_image(info->mlx, info->background_tex.img);
 	if (info->wall_tex.img)
@@ -46,6 +45,13 @@ void	free_info(t_info *info)
 		mlx_destroy_image(info->mlx, info->player_tex.img);
 	if (info->img.img)
 		mlx_destroy_image(info->mlx, info->img.img);
+}
+
+void	free_info(t_info *info)
+{
+	if (info->win)
+		mlx_destroy_window(info->mlx, info->win);
+	free_images(info);
 	if (info->mlx)
 	{
 		if (IS_LINUX)

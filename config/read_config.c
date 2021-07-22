@@ -61,21 +61,12 @@ void	proc_map_size(t_info *info)
 	}
 }
 
-void	read_config(t_info *info, char *file_path)
+void	set_buf(t_info *info)
 {
-	int		fd;
-	int		calced_width;
 	int		i;
 	int		j;
 
-	fd = open(file_path, O_RDONLY);
-	if (fd == -1)
-		end_game_without_map(info, "ERROR: Config file reading error.\n");
-	input_config(info, fd);
-	check_map(info);
-	proc_map_size(info);
 	info->buf = (int **)malloc((sizeof (int **)) * info->screen_height + 1);
-
 	i = 0;
 	while (i < info->screen_height)
 	{
@@ -90,4 +81,18 @@ void	read_config(t_info *info, char *file_path)
 		i++;
 	}
 	info->buf[i] = NULL;
+}
+
+void	read_config(t_info *info, char *file_path)
+{
+	int		fd;
+	int		calced_width;
+
+	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+		end_game_without_map(info, "ERROR: Config file reading error.\n");
+	input_config(info, fd);
+	check_map(info);
+	proc_map_size(info);
+	set_buf(info);
 }

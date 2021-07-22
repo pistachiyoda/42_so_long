@@ -53,6 +53,16 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 	info->worldMap[y][i] = -2;
 }
 
+void	free_line(t_info *info, char *line, int line_len, int y)
+{
+	if (info->map_width != 0 && info->map_width != line_len)
+	{
+		free(line);
+		free(info->worldMap[y]);
+		end_game(info, 1, "ERROR: Invalid map.\n");
+	}
+}
+
 int	handle_map(t_info *info, char *line, int *y)
 {
 	int	**new_map_array;
@@ -73,12 +83,7 @@ int	handle_map(t_info *info, char *line, int *y)
 	info->worldMap = new_map_array;
 	line_len = ft_strlen(line);
 	handle_line(info, *y, line, line_len);
-	if (info->map_width != 0 && info->map_width != line_len)
-	{
-		free(line);
-		free(info->worldMap[*y]);
-		end_game(info, 1, "ERROR: Invalid map.\n");
-	}
+	free_line(info, line, line_len, *y);
 	info->map_width = line_len;
 	(info->map_height)++;
 	(*y)++;
