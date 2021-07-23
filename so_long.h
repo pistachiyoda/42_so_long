@@ -57,6 +57,10 @@ typedef struct s_info
 	t_img		player_tex;
 	t_img		player_tex1;
 	t_img		player_tex2;
+	t_img		cat_left_tex1;
+	t_img		cat_left_tex2;
+	t_img		cat_right_tex1;
+	t_img		cat_right_tex2;
 	int			**buf;
 	int			**worldMap;
 	int			map_height;
@@ -80,6 +84,9 @@ typedef struct s_info
 	int			P_cnt;
 	int			C_cnt;
 	int			cnt_in_loop;
+	int			to_right;
+	double		cat_posX;
+	double		cat_posY;
 }				t_info;
 
 void	background(t_info *info);
@@ -109,4 +116,9 @@ void	free_map(t_info *info);
 void	free_info(t_info *info);
 void	set_player1_colors(t_info *info);
 void	set_player2_colors(t_info *info);
+void	set_cat_left1_colors(t_info *info);
+void	set_cat_left2_colors(t_info *info);
+void	set_cat_right1_colors(t_info *info);
+void	set_cat_right2_colors(t_info *info);
+void	cat_move(t_info *info);
 #endif

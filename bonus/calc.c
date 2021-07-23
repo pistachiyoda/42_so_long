@@ -27,9 +27,21 @@ void	calc(t_info *info)
 	set_opened_treasure_colors(info);
 	set_goal_colors(info);
 	if (info->cnt_in_loop < 40)
+	{
 		set_player1_colors(info);
+		if (info->to_right)
+			set_cat_right1_colors(info);
+		else
+			set_cat_left1_colors(info);
+	}
 	else
+	{
 		set_player2_colors(info);
+		if (info->to_right)
+			set_cat_right2_colors(info);
+		else
+			set_cat_left2_colors(info);
+	}
 }
 
 int	main_loop(t_info *info)
@@ -37,6 +49,7 @@ int	main_loop(t_info *info)
 	info->cnt_in_loop += 1;
 	if (info->cnt_in_loop > 80)
 		info->cnt_in_loop = 0;
+	cat_move(info);
 	calc(info);
 	draw(info);
 	key_update(info);

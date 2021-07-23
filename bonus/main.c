@@ -25,6 +25,10 @@ void	load_images(t_info *info)
 	load_image(info, &info->player_tex, "./textures/mae.xpm");
 	load_image(info, &info->player_tex1, "./textures/mae_1.xpm");
 	load_image(info, &info->player_tex2, "./textures/mae_2.xpm");
+	load_image(info, &info->cat_left_tex1, "./textures/cat_left_1.xpm");
+	load_image(info, &info->cat_left_tex2, "./textures/cat_left_2.xpm");
+	load_image(info, &info->cat_right_tex1, "./textures/cat_right_1.xpm");
+	load_image(info, &info->cat_right_tex2, "./textures/cat_right_2.xpm");
 }
 
 void	init_info(t_info *info)
@@ -46,6 +50,7 @@ void	init_info(t_info *info)
 	info->P_cnt = 0;
 	info->C_cnt = 0;
 	info->cnt_in_loop = 0;
+	info->to_right = 0;
 }
 
 int	main(int argc, char **argv)

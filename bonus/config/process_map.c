@@ -23,6 +23,12 @@ int	proc_map_element(char c, t_info *info)
 	}
 	return (-1);
 }
+#include <stdio.h>
+void	set_pos(double *posX, double *posY, int x, int y)
+{
+	*posX = x;
+	*posY = y;
+}
 
 void	handle_line(t_info *info, int y, char *line, int line_len)
 {
@@ -34,7 +40,7 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 		end_game(info, 1, "ERROR: Malloc failed.\n");
 	while (i < line_len)
 	{
-		if (!ft_strrchr("01CEP", line[i]))
+		if (!ft_strrchr("01CEPM", line[i]))
 		{
 			free(line);
 			free(info->worldMap[y]);
@@ -44,10 +50,9 @@ void	handle_line(t_info *info, int y, char *line, int line_len)
 			info->num_of_treasure += 1;
 		info->worldMap[y][i] = proc_map_element(line[i], info);
 		if (ft_strrchr("P", line[i]))
-		{
-			info->posX = i;
-			info->posY = y;
-		}
+			set_pos(&(info->posX), &(info->posY), i, y);
+		if (ft_strchr("M", line[i]))
+			set_pos(&(info->cat_posX), &(info->cat_posY), i, y);
 		i++;
 	}
 	info->worldMap[y][i] = -2;
