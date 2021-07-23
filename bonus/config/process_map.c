@@ -23,7 +23,7 @@ int	proc_map_element(char c, t_info *info)
 	}
 	return (-1);
 }
-#include <stdio.h>
+
 void	set_pos(double *posX, double *posY, int x, int y)
 {
 	*posX = x;
