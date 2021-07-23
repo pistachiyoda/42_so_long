@@ -11,7 +11,7 @@ void	cat_move(t_info *info)
 	if (info->worldMap[(int)(info->cat_posY)][(int)(next_x)] == WALL)
 		info->to_right = !(info->to_right);
 	if ((int)(info->posY) == (int)(info->cat_posY) && (int)(info->posX) == (int)(next_x))
-		end_game(info, 0, "game over\n");
+		end_game(info, 0, "Game Over\n");
 	info->cat_posX = next_x;
 
 }
