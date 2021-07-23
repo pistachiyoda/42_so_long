@@ -31,7 +31,7 @@ void	calc(t_info *info)
 	else
 		set_player2_colors(info);
 }
-#include <stdio.h>
+
 int	main_loop(t_info *info)
 {
 	info->cnt_in_loop += 1;
