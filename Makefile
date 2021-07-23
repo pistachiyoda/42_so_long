@@ -14,13 +14,13 @@ else
 	API = -lXext -lX11 -lm
 	MLX_PASS = ./minilibx-linux/
 endif
-CFLAGS = $(INCS)
+CFLAGS = $(INCS) -Wall -Wextra -Werror
 CFILES = main.c calc.c\
 		./texture/map.c ./texture/player.c ./texture/treasure.c\
 		./config/read_config.c ./config/process_map.c ./config/check_map.c\
 		./key/press_key.c ./key/move_player.c ./key/action.c ./key/key_update.c\
 		./end_game/end_game.c ./end_game/free.c
-BONUS_CFILES = main.c calc.c\
+BONUS_CFILES = ./bonus/main.c ./bonus/calc.c\
 		./bonus/texture/map.c ./bonus/texture/player.c ./bonus/texture/treasure.c\
 		./bonus/config/read_config.c ./bonus/config/process_map.c ./bonus/config/check_map.c\
 		./bonus/key/press_key.c ./bonus/key/move_player.c ./bonus/key/action.c ./bonus/key/key_update.c\

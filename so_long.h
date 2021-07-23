@@ -55,6 +55,8 @@ typedef struct s_info
 	t_img		tresure_tex;
 	t_img		goal_tex;
 	t_img		player_tex;
+	t_img		player_tex1;
+	t_img		player_tex2;
 	int			**buf;
 	int			**worldMap;
 	int			map_height;
@@ -77,6 +79,7 @@ typedef struct s_info
 	int			E_cnt;
 	int			P_cnt;
 	int			C_cnt;
+	int			cnt_in_loop;
 }				t_info;
 
 void	background(t_info *info);
@@ -104,4 +107,6 @@ void	get_treasure(t_info *info);
 void	check_goal_condition(t_info *info, int posX, int posY);
 void	free_map(t_info *info);
 void	free_info(t_info *info);
+void	set_player1_colors(t_info *info);
+void	set_player2_colors(t_info *info);
 #endif

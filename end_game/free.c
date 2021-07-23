@@ -43,6 +43,10 @@ void	free_images(t_info *info)
 		mlx_destroy_image(info->mlx, info->goal_tex.img);
 	if (info->player_tex.img)
 		mlx_destroy_image(info->mlx, info->player_tex.img);
+	if (info->player_tex1.img)
+		mlx_destroy_image(info->mlx, info->player_tex1.img);
+	if (info->player_tex2.img)
+		mlx_destroy_image(info->mlx, info->player_tex2.img);
 	if (info->img.img)
 		mlx_destroy_image(info->mlx, info->img.img);
 }

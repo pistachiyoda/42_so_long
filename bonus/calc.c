@@ -26,11 +26,17 @@ void	calc(t_info *info)
 	set_treasure_colors(info);
 	set_opened_treasure_colors(info);
 	set_goal_colors(info);
-	set_player_colors(info);
+	if (info->cnt_in_loop < 40)
+		set_player1_colors(info);
+	else
+		set_player2_colors(info);
 }
-
+#include <stdio.h>
 int	main_loop(t_info *info)
 {
+	info->cnt_in_loop += 1;
+	if (info->cnt_in_loop > 80)
+		info->cnt_in_loop = 0;
 	calc(info);
 	draw(info);
 	key_update(info);

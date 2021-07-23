@@ -21,8 +21,10 @@ void	load_images(t_info *info)
 	load_image(info, &info->wall_tex, "./textures/hana.xpm");
 	load_image(info, &info->tresure_tex, "./textures/takara.xpm");
 	load_image(info, &info->goal_tex, "./textures/goal.xpm");
-	load_image(info, &info->player_tex, "./textures/mae.xpm");
 	load_image(info, &info->opened_tresure_tex, "./textures/kara_takara.xpm");
+	load_image(info, &info->player_tex, "./textures/mae.xpm");
+	load_image(info, &info->player_tex1, "./textures/mae_1.xpm");
+	load_image(info, &info->player_tex2, "./textures/mae_2.xpm");
 }
 
 void	init_info(t_info *info)
