@@ -77,7 +77,7 @@ void	set_buf(t_info *info)
 			info->buf[i][j] = 0;
 			j++;
 		}
-		info->buf[i][j] = NULL;
+		info->buf[i][j] = '\n';
 		i++;
 	}
 	info->buf[i] = NULL;
@@ -86,7 +86,6 @@ void	set_buf(t_info *info)
 void	read_config(t_info *info, char *file_path)
 {
 	int		fd;
-	int		calced_width;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
