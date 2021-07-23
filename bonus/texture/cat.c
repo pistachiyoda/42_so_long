@@ -2,35 +2,18 @@
 
 void	cat_move(t_info *info)
 {
+	double	next_x;
 
 	if (info->to_right)
-	{	
-		if (info->worldMap[(int)(info->cat_posY)]
-				[(int)(info->cat_posX + info->moveSpeed)] == WALL)
-			info->to_right = !(info->to_right);
-		info->cat_posX += info->moveSpeed;
-	}
+		next_x = info->cat_posX + info->moveSpeed;
 	else
-	{	
-		if (info->worldMap[(int)(info->cat_posY)]
-				[(int)(info->cat_posX - info->moveSpeed)] == WALL)
-			info->to_right = !(info->to_right);
-		info->cat_posX -= info->moveSpeed;
-	}
+		next_x = info->cat_posX - info->moveSpeed;
+	if (info->worldMap[(int)(info->cat_posY)][(int)(next_x)] == WALL)
+		info->to_right = !(info->to_right);
+	if ((int)(info->posY) == (int)(info->cat_posY) && (int)(info->posX) == (int)(next_x))
+		end_game(info, 0, "game over\n");
+	info->cat_posX = next_x;
 
-	// if (info->worldMap[(int)(info->posY)]
-	// 		[(int)(info->posX + info->moveSpeed)] != WALL)
-	// {
-	// 	if ((int)(info->posX) != (int)(info->posX + info->moveSpeed))
-	// 	{
-	// 		move_cnt(info);
-	// 		check_goal_condition(
-	// 			info, (int)(info->posX + info->moveSpeed), (int)info->posY);
-	// 	}
-	// 	info->prev_posX = info->posX;
-	// 	info->posX += info->moveSpeed;
-	// 	get_treasure(info);
-	// }
 }
 
 void	set_cat_left1_colors(t_info *info)
