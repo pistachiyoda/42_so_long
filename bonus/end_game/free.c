@@ -29,6 +29,18 @@ void	free_map(t_info *info)
 	}
 }
 
+void	free_cats_images(t_info *info)
+{
+	if (info->cat_left_tex1.img)
+		mlx_destroy_image(info->mlx, info->cat_left_tex1.img);
+	if (info->cat_left_tex2.img)
+		mlx_destroy_image(info->mlx, info->cat_left_tex2.img);
+	if (info->cat_right_tex1.img)
+		mlx_destroy_image(info->mlx, info->cat_right_tex1.img);
+	if (info->cat_right_tex2.img)
+		mlx_destroy_image(info->mlx, info->cat_right_tex2.img);
+}
+
 void	free_images(t_info *info)
 {
 	if (info->background_tex.img)
@@ -43,6 +55,11 @@ void	free_images(t_info *info)
 		mlx_destroy_image(info->mlx, info->goal_tex.img);
 	if (info->player_tex.img)
 		mlx_destroy_image(info->mlx, info->player_tex.img);
+	if (info->player_tex1.img)
+		mlx_destroy_image(info->mlx, info->player_tex1.img);
+	if (info->player_tex2.img)
+		mlx_destroy_image(info->mlx, info->player_tex2.img);
+	free_cats_images(info);
 	if (info->img.img)
 		mlx_destroy_image(info->mlx, info->img.img);
 }
