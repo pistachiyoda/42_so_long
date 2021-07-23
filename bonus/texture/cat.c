@@ -5,14 +5,17 @@ void	cat_move(t_info *info)
 	double	next_x;
 
 	if (info->to_right)
-		next_x = info->cat_posX + info->moveSpeed;
+		next_x = info->cat_posX + info->moveSpeed ;
 	else
 		next_x = info->cat_posX - info->moveSpeed;
-	if (info->worldMap[(int)(info->cat_posY)][(int)(next_x)] == WALL)
-		info->to_right = !(info->to_right);
 	if ((int)(info->posY) == (int)(info->cat_posY)
 		&& (int)(info->posX) == (int)(next_x))
 		end_game(info, 0, "Game Over\n");
+	if (info->worldMap[(int)(info->cat_posY)][(int)(next_x)] == WALL)
+	{
+		info->to_right = !(info->to_right);
+		return ;
+	}
 	info->cat_posX = next_x;
 }
 
