@@ -17,8 +17,6 @@ void	load_image(t_info *info, t_img *texture, char *path)
 
 void	load_images(t_info *info)
 {
-	t_img	img;
-
 	load_image(info, &info->background_tex, "./textures/siba.xpm");
 	load_image(info, &info->wall_tex, "./textures/hana.xpm");
 	load_image(info, &info->tresure_tex, "./textures/takara.xpm");
@@ -29,9 +27,6 @@ void	load_images(t_info *info)
 
 void	init_info(t_info *info)
 {
-	int	i;
-	int	j;
-
 	info->mlx = mlx_init();
 	info->buf = NULL;
 	info->moveSpeed = 0.02;
@@ -48,6 +43,7 @@ void	init_info(t_info *info)
 	info->E_cnt = 0;
 	info->P_cnt = 0;
 	info->C_cnt = 0;
+	info->cnt_in_loop = 0;
 }
 
 int	main(int argc, char **argv)
