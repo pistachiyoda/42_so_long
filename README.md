@@ -9,7 +9,7 @@ so_longは２次元ゲームを実行するプログラム。
 makeにてコンパイル後、実行ファイルso_longの引数にmapファイルを渡して実行する。
 ```
 make
-./cub3D && ./map/ok1.ber
+./so_long && ./map/ok1.ber
 ```
 
 ## 操作
